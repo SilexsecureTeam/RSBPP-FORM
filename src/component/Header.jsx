@@ -107,20 +107,20 @@ const Header = () => {
         {/* Desktop Nav */}
         <nav
           ref={dropdownRef}
-          className="hidden md:flex items-center gap-6 font-medium text-black uppercase "
+          className="hidden md:flex items-center gap-4 font-medium text-black uppercase "
         >
           {navLinks.map((link, i) =>
             link.items ? (
               <div key={i} className="relative">
                 <button
                   onClick={() => setOpenDropdown(openDropdown === i ? null : i)}
-                  className="flex items-center cursor-pointer gap-1 hover:text-[#8B0002] whitespace-nowrap"
+                  className="flex items-center cursor-pointer gap-1 hover:text-[#8B0002] uppercase whitespace-nowrap"
                 >
                   {link.label}
                   <Plus size={14} />
                 </button>
                 <div
-                  className={`absolute left-0 mt-2 bg-[#fdfbfb] text-xs font-semibold shadow-lg rounded-lg min-w-[12rem] max-w-[16rem] z-[100] transition-opacity duration-200 ease-in-out ${
+                  className={`absolute left-0 mt-2 bg-[#fdfbfb] text-xs font-semibold uppercase shadow-lg rounded-lg min-w-[12rem] max-w-[16rem] z-[100] transition-opacity duration-200 ease-in-out ${
                     openDropdown === i
                       ? "opacity-100"
                       : "opacity-0 pointer-events-none"
@@ -133,12 +133,12 @@ const Header = () => {
                           onClick={() =>
                             setSubDropdown(subDropdown === j ? null : j)
                           }
-                          className="flex justify-between text-xs w-full px-4 py-2 text-left hover:bg-gray-50"
+                          className="flex justify-between text-xs w-full uppercase px-4 py-2 text-left hover:bg-gray-50"
                         >
                           {item.label} <Plus size={14} />
                         </button>
                         <div
-                          className={`absolute top-0 left-[100%] ml-1 bg-[#fdfbfb] shadow-lg rounded-lg min-w-[12rem] max-w-[16rem] z-[100] transition-opacity duration-200 ease-in-out ${
+                          className={`absolute top-0 left-[100%] ml-1 bg-[#fdfbfb] shadow-lg rounded-lg min-w-[12rem] max-w-[16rem] z-[100] transition-opacity duration-200 uppercase ease-in-out ${
                             subDropdown === j
                               ? "opacity-100"
                               : "opacity-0 pointer-events-none"
@@ -148,7 +148,7 @@ const Header = () => {
                             <Link
                               key={k}
                               to={sub.to}
-                              className="block px-4 py-2 hover:bg-gray-50"
+                              className="block px-4 py-2 uppercase hover:bg-gray-50"
                             >
                               {sub.label}
                             </Link>
@@ -159,7 +159,7 @@ const Header = () => {
                       <Link
                         key={j}
                         to={item.to}
-                        className="block px-4 py-2 hover:bg-gray-50"
+                        className="block px-4 py-2 uppercase hover:bg-gray-50"
                       >
                         {item.label}
                       </Link>
@@ -171,7 +171,7 @@ const Header = () => {
               <Link
                 key={i}
                 to={link.to}
-                className="hover:text-[#8B0002] whitespace-nowrap"
+                className="hover:text-[#8B0002] uppercase whitespace-nowrap"
               >
                 {link.label}
               </Link>
@@ -181,7 +181,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden bg-[#8B0002] text-white p-2 rounded"
+          className="md:hidden bg-[#8B0002] uppercase text-white p-2 rounded"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X /> : <Menu />}
@@ -190,22 +190,22 @@ const Header = () => {
 
       {/* Mobile Nav with slide in/out */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-[100] ${
+        className={`fixed top-0 left-0 h-full uppercase w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-[100] ${
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="px-4 py-4 space-y-2 font-medium text-black mt-12">
+        <div className="px-4 py-4 space-y-2 uppercase font-medium text-black mt-12">
           {navLinks.map((link, i) =>
             link.items ? (
               <div key={i} className="border-b pb-2">
                 <button
                   onClick={() => setOpenDropdown(openDropdown === i ? null : i)}
-                  className="flex items-center justify-between w-full hover:text-[#8B0002]"
+                  className="flex items-center uppercase justify-between w-full hover:text-[#8B0002]"
                 >
                   {link.label} <Plus size={14} />
                 </button>
                 <div
-                  className={`pl-4 mt-2 space-y-1 transition-all duration-300 ease-in-out ${
+                  className={`pl-4 mt-2 space-y-1 uppercase transition-all duration-300 ease-in-out ${
                     openDropdown === i
                       ? "max-h-96 opacity-100"
                       : "max-h-0 opacity-0 overflow-hidden"
@@ -218,12 +218,12 @@ const Header = () => {
                           onClick={() =>
                             setSubDropdown(subDropdown === j ? null : j)
                           }
-                          className="flex items-center justify-between w-full hover:text-[#8B0002]"
+                          className="flex items-center uppercase justify-between w-full hover:text-[#8B0002]"
                         >
                           {item.label} <Plus size={14} />
                         </button>
                         <div
-                          className={`pl-4 mt-1 space-y-1 transition-all duration-300 ease-in-out ${
+                          className={`pl-4 mt-1 space-y-1 uppercase transition-all duration-300 ease-in-out ${
                             subDropdown === j
                               ? "max-h-96 opacity-100"
                               : "max-h-0 opacity-0 overflow-hidden"
@@ -233,7 +233,7 @@ const Header = () => {
                             <Link
                               key={k}
                               to={sub.to}
-                              className="block hover:text-[#8B0002]"
+                              className="block hover:text-[#8B0002] uppercase"
                             >
                               {sub.label}
                             </Link>
@@ -244,7 +244,7 @@ const Header = () => {
                       <Link
                         key={j}
                         to={item.to}
-                        className="block hover:text-[#8B0002]"
+                        className="block hover:text-[#8B0002] uppercase"
                       >
                         {item.label}
                       </Link>
@@ -256,7 +256,7 @@ const Header = () => {
               <Link
                 key={i}
                 to={link.to}
-                className="block hover:text-[#8B0002] border-b pb-2"
+                className="block hover:text-[#8B0002] uppercase border-b pb-2"
               >
                 {link.label}
               </Link>

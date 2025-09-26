@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Select from "react-select";
-import courses from "../data/courses";
+import { useNavigate } from "react-router-dom";
 
 const CourseRegistrationForm = () => {
   // Form state
@@ -15,14 +15,18 @@ const CourseRegistrationForm = () => {
     telephone: "",
     email: "",
     course_title: "",
-    form_source: "rsbpp",
+    form_source: "rsbpp", // Note: May need to change to "messerand" if backend requires
   });
 
   // API and form states
   const [countries, setCountries] = useState([]);
+  const [courses, setCourses] = useState([]);
   const [loadingCountries, setLoadingCountries] = useState(false);
+  const [loadingCourses, setLoadingCourses] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate();
 
   // Fetch countries from API
   useEffect(() => {
@@ -51,6 +55,37 @@ const CourseRegistrationForm = () => {
       }
     };
     fetchCountries();
+  }, []);
+
+  // Fetch courses from API
+  useEffect(() => {
+    const fetchCourses = async () => {
+      setLoadingCourses(true);
+      try {
+        const response = await fetch("https://dash.rsbpp.nl/api/rsbpp-courses");
+        if (!response.ok) throw new Error("Failed to fetch courses");
+        const data = await response.json();
+        if (!data.success)
+          throw new Error("API returned an unsuccessful response");
+        const courseList = data.data.data.map((course) => course.course_name);
+        if (courseList.length === 0) {
+          toast.warn("No courses available at the moment.", {
+            position: "top-right",
+            autoClose: 3000,
+          });
+        }
+        setCourses(courseList);
+      } catch (error) {
+        console.error(error);
+        toast.error("Failed to load courses. Please try again.", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      } finally {
+        setLoadingCourses(false);
+      }
+    };
+    fetchCourses();
   }, []);
 
   // Handle input changes
@@ -125,9 +160,10 @@ const CourseRegistrationForm = () => {
       toast.success("Registration submitted successfully!", {
         position: "top-right",
         autoClose: 2000,
-        onClose: () => {
-          window.location.href = "https://rsbpp.nl/";
-        },
+      });
+      // Navigate to success page with user name
+      navigate("/success", {
+        state: { name: `${formData.surname} ${formData.othernames}` },
       });
       setFormData({
         surname: "",
@@ -235,6 +271,31 @@ const CourseRegistrationForm = () => {
               ></path>
             </svg>
             Loading countries...
+          </p>
+        )}
+        {loadingCourses && (
+          <p className="text-gray-500 text-sm animate-pulse flex items-center">
+            <svg
+              className="animate-spin h-4 w-4 mr-2 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v8H4z"
+              ></path>
+            </svg>
+            Loading courses...
           </p>
         )}
         <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in">
@@ -445,6 +506,7 @@ const CourseRegistrationForm = () => {
               placeholder="Select a course"
               isClearable
               isSearchable
+              isDisabled={loadingCourses || courses.length === 0}
               styles={selectStyles}
               className="mt-1"
               menuPlacement="auto"
@@ -462,7 +524,12 @@ const CourseRegistrationForm = () => {
             <button
               type="submit"
               className="w-fit border-2 bg-transparent border-[#D40B0B] text-[#D40B0B] py-3 px-8 rounded-md hover:bg-[#D40B0B] hover:text-white cursor-pointer transition-colors font-bold flex items-center justify-center disabled:opacity-50"
-              disabled={submitting || loadingCountries}
+              disabled={
+                submitting ||
+                loadingCountries ||
+                loadingCourses ||
+                courses.length === 0
+              }
             >
               {submitting ? (
                 <>
@@ -494,10 +561,6 @@ const CourseRegistrationForm = () => {
             </button>
           </div>
         </form>
-        {/* <p className="text-xs text-gray-500 font-semibold mt-4">
-          Powered by <span className="text-blue-300 underline">ARForms</span>{" "}
-          <span className="text-[#D40B0B]">(Unlicensed)</span>
-        </p> */}
         <ToastContainer position="top-right" autoClose={2000} />
       </div>
     </div>

@@ -1,16 +1,15 @@
 import "./App.css";
-import Noti from "./component/Noti";
-import Header from "./component/Header";
-import CourseRegistrationForm from "./component/CourseRegistrationForm";
-import Footer from "./component/Footer";
+import { Routes, Route } from "react-router-dom";
+import Form from "./page/Form";
+import SuccessPage from "./page/SuccessPage";
 
 function App() {
   return (
     <div>
-      <Noti />
-      <Header />
-      <CourseRegistrationForm />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Form />} />
+        <Route path="/success" element={<SuccessPage />} />
+      </Routes>
     </div>
   );
 }
