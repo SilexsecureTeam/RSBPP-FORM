@@ -26,25 +26,48 @@ const Footer = () => {
                 {/* Social Media Icons */}
                 <div className="flex space-x-3 pt-4">
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <a
+                      href="https://www.facebook.com/profile.php?id=61558624776513&_rdc=1&_rdr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    ></a>
                     <Facebook
                       className="w-5 h-5 text-blue-400"
                       fill="currentColor"
                     />
                   </div>
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <Twitter
-                      className="w-5 h-5 text-blue-400"
-                      fill="currentColor"
-                    />
+                    <a
+                      href="https://rsbpp.nl/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Twitter
+                        className="w-5 h-5 text-blue-400"
+                        fill="currentColor"
+                      />
+                    </a>
                   </div>
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <Linkedin
-                      className="w-5 h-5 text-blue-400"
-                      fill="currentColor"
-                    />
+                    <a
+                      href="https://www.linkedin.com/company/rottedam-school-of-business-public-policy/about/?viewAsMember=true"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Linkedin
+                        className="w-5 h-5 text-blue-400"
+                        fill="currentColor"
+                      />
+                    </a>
                   </div>
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <Instagram className="w-5 h-5 text-blue-400" />
+                    <a
+                      href="https://rsbpp.nl/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Instagram className="w-5 h-5 text-blue-400" />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -56,37 +79,58 @@ const Footer = () => {
                 </h4>
                 <ul className="space-y-3 text-gray-100 text-base">
                   <li>
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a
+                      href="https://rsbpp.nl/"
+                      className="hover:text-white transition-colors"
+                    >
                       Home
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a
+                      href="https://rsbpp.nl/index.php/about-us/"
+                      className="hover:text-white transition-colors"
+                    >
                       About Us
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a
+                      href="https://rsbpp.nl/index.php/programmes/"
+                      className="hover:text-white transition-colors"
+                    >
                       Programmes
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a
+                      href="https://rsbpp.nl/"
+                      className="hover:text-white transition-colors"
+                    >
                       News & Events
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a
+                      href="https://rsbpp.nl/index.php/contact-us/"
+                      className="hover:text-white transition-colors"
+                    >
                       Contact
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a
+                      href="https://rsbpp.nl/index.php/faculty-of-business-communication-and-finance/"
+                      className="hover:text-white transition-colors"
+                    >
                       Faculties
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a
+                      href="https://rsbpp.nl/index.php/certifications/"
+                      className="hover:text-white transition-colors"
+                    >
                       Certifications
                     </a>
                   </li>
@@ -100,17 +144,26 @@ const Footer = () => {
                 </h4>
                 <ul className="space-y-3 text-gray-100 text-base">
                   <li>
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a
+                      href="https://rsbpp.nl/index.php/how-to-register/"
+                      className="hover:text-white transition-colors"
+                    >
                       How to Register
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a
+                      href="https://rsbpp.nl/"
+                      className="hover:text-white transition-colors"
+                    >
                       Support & Guidance
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a
+                      href="https://rsbpp.nl/"
+                      className="hover:text-white transition-colors"
+                    >
                       Blog
                     </a>
                   </li>
@@ -123,8 +176,18 @@ const Footer = () => {
                   Now Available
                 </h4>
                 <div className="space-y-3">
-                  <img src={apple} alt="apple-logo" />
-                  <img src={google} alt="google-logo" />
+                  <a
+                    href="https://rsbpp.nl/"
+                    className="hover:text-white transition-colors"
+                  >
+                    <img src={apple} alt="apple-logo" />
+                  </a>
+                  <a
+                    href="https://rsbpp.nl/"
+                    className="hover:text-white transition-colors"
+                  >
+                    <img src={google} alt="google-logo" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -134,7 +197,7 @@ const Footer = () => {
       <div className="w-full bg-white">
         {/* Bottom copyright section */}
         <div className=" mx-auto max-w-7xl px-6 py-8">
-          <div className="max-w-7xl font-black mx-auto flex flex-col md:flex-row justify-between items-center text-base text-gray-700">
+          <div className="max-w-7xl font-black mx-auto flex flex-col md:flex-row justify-between items-center text-sm md:text-base text-gray-700">
             <div>Copyright © 2024 RSBPP. All rights reserved.</div>
             <div className="flex space-x-6 mt-2 md:mt-0">
               <a href="#" className="hover:underline transition-colors">
