@@ -1,0 +1,27 @@
+next is the header component. logo by the left and Home About us Programmes Faculties News & Events Support and Guidance Downloads. navlink . About us, Programmes, Faculties, Downloads have + iconso they open a drowdown when user clicks it. nit toggles and if they click outside the dropdown it close also. about us drop down are Who We Are
+Mission/Vision
+Our Leadership
+Contact us. Our Leadership has a + icon also which open Advisory Board
+Dean’s Message dropdown by the right.
+programmes dropdown are Executive Education
+Online Programmes
+Certifications.
+Faculties dropdown are Faculty of Business, Communication and Finance
+Faculty of Good Governance, and Public Policy
+Faculty of Data Science and Artificial Intelligence.
+Download dropdown is 2025 Course Brochure. text color is #080909 and user hover over it it shows #8B0002.
+make it responsive. the humburger and x icon is white but have #8B0002 background also. hope u understand.
+
+use a tag to link them
+https://rsbpp.nl/ for logo, home and every other navlink that the url is not avalable yet.
+https://rsbpp.nl/index.php/about-us/
+https://rsbpp.nl/index.php/mission-statement/
+https://rsbpp.nl/index.php/advisory-board/
+https://rsbpp.nl/index.php/deans-messade/
+https://rsbpp.nl/index.php/contact-us/
+https://rsbpp.nl/index.php/executive-education-programmes/
+https://rsbpp.nl/index.php/online-programmes/
+https://rsbpp.nl/index.php/certifications/
+https://rsbpp.nl/index.php/faculty-of-business-communication-and-finance/
+https://rsbpp.nl/index.php/faculty-of-good-governance/
+"https://rsbpp.nl/wp-content/uploads/2024/06/RSBPP-BROCHURE-24-25-V5-v2.1_compressed.pdf" for 2025 Course Brochure
