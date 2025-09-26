@@ -6,7 +6,7 @@ const Success = () => {
   const userName = state?.name || "User"; // Fallback if name is not passed
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-8">
       <div className="max-w-md mx-auto px-8 py-8 bg-white rounded-lg shadow-lg text-center">
         <svg
           className="w-16 h-16 mx-auto text-green-500 mb-4"
