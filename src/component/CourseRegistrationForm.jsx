@@ -494,10 +494,10 @@ const CourseRegistrationForm = () => {
             </button>
           </div>
         </form>
-        <p className="text-xs text-gray-500 font-semibold mt-4">
+        {/* <p className="text-xs text-gray-500 font-semibold mt-4">
           Powered by <span className="text-blue-300 underline">ARForms</span>{" "}
           <span className="text-[#D40B0B]">(Unlicensed)</span>
-        </p>
+        </p> */}
         <ToastContainer position="top-right" autoClose={2000} />
       </div>
     </div>
